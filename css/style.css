@@ -19,6 +19,7 @@ body {
     border: 2px solid red;
     cursor: pointer;
 }
+
 .hidden {
     visibility: hidden;
 }
