@@ -1,9 +1,10 @@
 /*-------------- Constants --------------*/
-Const choicesArr = ('rock','paper','scissors')
+const choicesArr = ['rock', 'paper', 'scissors']
+
 /*-------------- Variables --------------*/
 let userChoice = ''
-let computer
-let randomIndex = Math.floor(Math.random)
+let computerChoice = ''
+
 /*------ Cached Element References ------*/
 const choices = document.querySelector('#choices')
 
@@ -15,30 +16,31 @@ const reset = document.querySelector('#reset')
 
 /*----------- Event Listeners -----------*/
 choices.addEventListener('click', function(event){
+event.target.setattribute('disabled','disabled')
     userChoice = event.target.id
 
-    // we want to hide buttons that are not userChoice
     if (userChoice === 'rock'){
-        // add hidden class to paper and scissors buttons
-        paper.classList.add('hidden')
-        scissors.classList.add('hidden')
+        paper.setattribute('disabled','disabled')
+        scissors.setattribute('disabled','disabled')
     } else if (userChoice === 'paper') {
-        rock.classList.add('hidden')
-        scissors.classList.add('hidden')
+        rock.setattribute('disabled','disabled')
+        scissors.setattribute('disabled','disabled')
     } else {
-        rock.classList.add('hidden')
-        paper.classList.add('hidden')
-    }
-computerChoice = choicesArr
+        rock.setattribute('disabled','disabled')
+        paper.setattribute('disabled','disabled')
+
+    // computer makes a choice
+    let randomIndex = Math.floor(Math.random() * 3)
+    computerChoice = choicesArr[randomIndex]
+
     console.log('userChoice: ', userChoice)
-    
+    console.log('computerChoice: ', computerChoice)
 })
 
 reset.addEventListener('click', function(){
     paper.classList.remove('hidden')
     scissors.classList.remove('hidden')
     rock.classList.remove('hidden')
-
 })
 
 /*-------------- Functions --------------*/
